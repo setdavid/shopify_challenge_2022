@@ -25,6 +25,10 @@
     user-select: none;
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 /********** Component Styles **********/
 
 #app-content {
@@ -37,6 +41,14 @@
     z-index: 1000;
     background: white;
     position: fixed;
+}
+
+#navbar-search {
+    transition-property: max-height;
+    transition-duration: 1000ms;
+    transition-timing-function: ease-in-out;
+    overflow: hidden;
+    height: auto;
 }
 
 #logo {
