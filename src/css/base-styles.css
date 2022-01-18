@@ -76,6 +76,15 @@
     scroll-behavior: smooth;
 }
 
+#apod-content {
+
+}
+
+.apod-card {
+    background-color: red;
+    border-radius: 10px;
+}
+
 /********** Media Queries **********/
 
 /********** Extra Large devices only **********/
