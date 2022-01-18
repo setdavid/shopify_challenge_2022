@@ -37,7 +37,7 @@
 }
 
 #navbar {
-    box-shadow: 2px 4px 4px hsl(0deg 0% 0% / 0.44);
+    box-shadow: 1.6px 3.2px 3.2px hsl(0deg 0% 0% / 0.45);
     z-index: 1000;
     background: white;
     position: fixed;
@@ -67,7 +67,6 @@
 }
 
 #main-content {
-    background: green;
     scroll-behavior: smooth;
 }
 
@@ -76,13 +75,34 @@
     scroll-behavior: smooth;
 }
 
-#apod-content {
-
+#app-description {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
-.apod-card {
-    background-color: red;
+#app-description, .apod-card {
+    box-shadow: 1px 2.1px 2.1px hsl(0deg 0% 0% / 0.47);
+    z-index: 100;
     border-radius: 10px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    background: white;
+}
+
+.apod-card {}
+
+.apod-card-image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.apod-card-image .col-12 {
+    padding: 0;
+}
+
+.apod-card-description {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 /********** Media Queries **********/
