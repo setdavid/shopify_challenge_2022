@@ -1,7 +1,26 @@
-import React from "react";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
 
 function ApodCard(props) {
     let { apodObj } = props;
+
+    let [liked, setLiked] = useState(false);
+
+    let likeBtnCSS = {}
+
+    if (liked) {
+        likeBtnCSS = {
+            ...likeBtnCSS,
+            color: "red"
+        }
+    } else {
+        likeBtnCSS = {
+            ...likeBtnCSS,
+            color: "var(--text)"
+        }
+    }
+
     return (
         <div className="row justify-content-center">
             <div className="apod-card col-12 col-md-9">
@@ -12,9 +31,14 @@ function ApodCard(props) {
                 </div>
                 <div className="row apod-card-description">
                     <div className="col-12">
-                        <h4>
-                            {apodObj.title}
-                        </h4>
+                        <div>
+                            <h4>
+                                {apodObj.title}
+                            </h4>
+                            <button className="like-btn" style={likeBtnCSS} onClick={() => setLiked(!liked)}>
+                                <FontAwesomeIcon size="lg" icon={faHeart} />
+                            </button>
+                        </div>
                         <h5>
                             {apodObj.copyright}
                         </h5>

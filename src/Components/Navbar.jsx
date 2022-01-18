@@ -19,12 +19,14 @@ function Navbar() {
     if (toggleSearch) {
         navbarSearchCSS = {
             ...navbarSearchCSS,
-            opacity: 1
+            opacity: 1,
+            maxHeight: "100vh"
         }
     } else {
         navbarSearchCSS = {
             ...navbarSearchCSS,
-            opacity: 0
+            opacity: 0,
+            maxHeight: 0
         }
     }
 
@@ -45,7 +47,9 @@ function Navbar() {
                     </h3>
                 </div>
                 <div id="search-toggle" className="col-6">
-                    <FontAwesomeIcon icon={faSearch} className="clickable" onClick={() => setToggleSearch(!toggleSearch)} />
+                    <button onClick={() => setToggleSearch(!toggleSearch)} >
+                        <FontAwesomeIcon icon={faSearch} />
+                    </button>
                 </div>
             </div>
             <div id="navbar-search" className="row" style={navbarSearchCSS}>
@@ -60,6 +64,7 @@ function Navbar() {
                                 <input
                                     type="date"
                                     name="start_date"
+                                    value={startDate}
                                     onChange={e => { setStartDate(e.target.value) }} />
                             </div>
                             <div className="col-12 col-lg-4">
@@ -67,9 +72,10 @@ function Navbar() {
                                 <input
                                     type="date"
                                     name="end_date"
+                                    value={endDate}
                                     onChange={e => { setEndDate(e.target.value) }} />
                             </div>
-                            <div className="col-12 col-lg-4">
+                            <div id="navbar-search-enter" className="col-12 col-lg-4">
                                 <button>Enter</button>
                             </div>
                         </div>

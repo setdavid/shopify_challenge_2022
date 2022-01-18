@@ -16,7 +16,7 @@ function MainContent() {
 
     return (
         <div id="main-content-fluid" className="container-fluid">
-            <div id="main-content" className="container full-height">
+            <div id="main-content" className="container">
                 <div className="row justify-content-center">
                     <div id="app-description" className="col-12 col-md-9">
                         <p style={{ marginBottom: "0" }}>
@@ -33,9 +33,9 @@ function MainContent() {
                         {apodObjsArr}
                     </div>
                 </div>
-                <div className="row">
+                <div id="load-more-btn-wrapper" className="row">
                     <div className="col-12">
-                        <button id="load-more-btn" className="clickable" onClick={e => {
+                        <button id="load-more-btn" onClick={e => {
                             e.preventDefault();
                             dateRef.setDate(dateRef.getDate() - 1);
                             getApodDaysAgo(dateRef, 6);
