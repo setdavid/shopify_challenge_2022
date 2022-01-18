@@ -5,8 +5,6 @@ import ApodCard from "./ApodCard";
 
 function MainContent() {
     let { apodObjs, dateRef } = useSelector(state => state.apod);
-    console.log(apodObjs.length);
-    console.log(apodObjs);
 
     let apodObjsArr = new Array(apodObjs.length);
 
@@ -23,7 +21,7 @@ function MainContent() {
                             A simple web app to view NASA's Astronomy Picture of the Day (APOD).
                             The app will automatically load the recent week's set of APODs but users
                             can load more. The app comes with a search feature that allows users to
-                            input a range of dates to load the set of APODs from the range of dates.
+                            input a range of dates to load the set of APODs from the range.
                             Created by David Setiawan.
                         </p>
                     </div>

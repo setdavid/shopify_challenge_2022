@@ -1,14 +1,13 @@
 import store from "../redux/configure-store";
 import { setApodObjs, setDateRef } from "../redux/ducks/apod";
 
-export let initialize = () => {
-}
-
 export let getApodDaysAgo = (currDate, days) => {
-    let targetDate = new Date();
-    targetDate.setDate(currDate.getDate() - days);
     let currDateString = currDate.toISOString().split('T')[0];
+
+    let targetDate = new Date(currDate);
+    targetDate.setDate(currDate.getDate() - days);
     let targetDateString = targetDate.toISOString().split('T')[0];
+
     store.dispatch(setDateRef(targetDate));
     apodRange(false, targetDateString, currDateString);
 }
