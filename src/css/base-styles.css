@@ -38,27 +38,32 @@
 
 #navbar {
     z-index: 10000;
-    background: white;
     position: fixed;
+    overflow: hidden;
+}
+
+#navbar-main, #navbar-search>.col-10 {
+    box-shadow: 1.6px 3.2px 3.2px hsl(0deg 0% 0% / 0.45);
 }
 
 #navbar-main {
-    box-shadow: 1.6px 3.2px 3.2px hsl(0deg 0% 0% / 0.45);
-    z-index: 5000;
+    background: white;
 }
 
 #navbar-search {
-    /* transition-property: max-height;
-    transition-duration: 1000ms;
-    transition-timing-function: ease-in-out; */
-    overflow: hidden;
     height: auto;
-    background: #9e9e9e;
-    z-index: 2000;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    transition: opacity 0.5s;
 }
 
-#navbar-search>.col-12 {
+#navbar-search>.col-10 {
     padding: 15px 15px;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 #logo {
@@ -71,7 +76,6 @@
     justify-content: end;
     align-items: center;
 }
-
 
 #navbar-search label {
     display: block;
@@ -95,7 +99,7 @@
 
 #main-content-fluid {
     background: var(--theme-1);
-    scroll-behavior: smooth;
+    overflow-y: scroll;
 }
 
 #app-description {
@@ -114,8 +118,6 @@
 #app-description, .apod-card, #load-more-btn {
     box-shadow: 1px 2.1px 2.1px hsl(0deg 0% 0% / 0.47);
 }
-
-.apod-card {}
 
 .apod-card-image img {
     max-width: 100%;

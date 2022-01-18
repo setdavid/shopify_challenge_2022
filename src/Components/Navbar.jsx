@@ -14,8 +14,18 @@ function Navbar() {
         height: `${NAVBAR_HEIGHT}px`
     }
 
-    let navbarSearchCSS = {
-        maxHeight: `${toggleSearch ? "100%" : "0px"}`
+    let navbarSearchCSS = {}
+
+    if (toggleSearch) {
+        navbarSearchCSS = {
+            ...navbarSearchCSS,
+            opacity: 1
+        }
+    } else {
+        navbarSearchCSS = {
+            ...navbarSearchCSS,
+            opacity: 0
+        }
     }
 
     let handleSubmit = e => {
@@ -39,7 +49,7 @@ function Navbar() {
                 </div>
             </div>
             <div id="navbar-search" className="row" style={navbarSearchCSS}>
-                {toggleSearch ? <div className="col-12">
+                <div className="col-10">
                     <div style={{ marginBottom: "20px" }}>
                         Retrieve APODs from a date range:
                     </div>
@@ -64,7 +74,7 @@ function Navbar() {
                             </div>
                         </div>
                     </form>
-                </div> : ""}
+                </div>
             </div>
         </div>
     );
