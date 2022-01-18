@@ -7,7 +7,7 @@ function ApodCard(props) {
             <div className="apod-card col-12 col-md-9">
                 <div className="row apod-card-image">
                     <div className="col-12">
-                        <img src={apodObj.hdurl} alt={apodObj.title} />
+                        <img src={apodObj.url} alt={apodObj.title} />
                     </div>
                 </div>
                 <div className="row apod-card-description">

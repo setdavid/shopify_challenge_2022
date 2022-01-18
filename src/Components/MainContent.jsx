@@ -1,15 +1,22 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { getApodDaysAgo } from "../js/utils";
 import ApodCard from "./ApodCard";
 
 function MainContent() {
-    let { apodObjs } = useSelector(state => state.apod);
+    let { apodObjs, dateRef } = useSelector(state => state.apod);
     console.log(apodObjs.length);
     console.log(apodObjs);
 
+    let apodObjsArr = new Array(apodObjs.length);
+
+    for (let i = apodObjs.length - 1; i >= 0; i--) {
+        apodObjsArr[apodObjs.length - 1 - i] = <ApodCard key={i} apodObj={apodObjs[i]} />
+    }
+
     return (
         <div id="main-content-fluid" className="container-fluid">
-            <div id="main-content" className="container full-height" style={{ paddingTop: "20px" }}>
+            <div id="main-content" className="container full-height">
                 <div className="row justify-content-center">
                     <div id="app-description" className="col-12 col-md-9">
                         <p style={{ marginBottom: "0" }}>
@@ -23,7 +30,16 @@ function MainContent() {
                 </div>
                 <div id="apod-content" className="row">
                     <div className="col-12">
-                        {apodObjs.map((apodObj, i) => <ApodCard key={i} apodObj={apodObj} />)}
+                        {apodObjsArr}
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-12">
+                        <button id="load-more-btn" className="clickable" onClick={e => {
+                            e.preventDefault();
+                            dateRef.setDate(dateRef.getDate() - 1);
+                            getApodDaysAgo(dateRef, 6);
+                        }}>Load More!</button>
                     </div>
                 </div>
             </div>

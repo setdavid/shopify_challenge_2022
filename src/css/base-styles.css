@@ -67,7 +67,8 @@
 }
 
 #main-content {
-    scroll-behavior: smooth;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #main-content-fluid {
@@ -81,12 +82,15 @@
 }
 
 #app-description, .apod-card {
-    box-shadow: 1px 2.1px 2.1px hsl(0deg 0% 0% / 0.47);
     z-index: 100;
     border-radius: 10px;
     margin-bottom: 1rem;
     overflow: hidden;
     background: white;
+}
+
+#app-description, .apod-card, #load-more-btn {
+    box-shadow: 1px 2.1px 2.1px hsl(0deg 0% 0% / 0.47);
 }
 
 .apod-card {}
@@ -103,6 +107,14 @@
 .apod-card-description {
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+#load-more-btn {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: white;
+    border-radius: 10px;
 }
 
 /********** Media Queries **********/
