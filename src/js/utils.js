@@ -9,20 +9,17 @@ export let getApodDaysAgo = (currDate, days) => {
     let targetDateString = targetDate.toISOString().split('T')[0];
 
     store.dispatch(setDateRef(targetDate));
-    apodRange(false, targetDateString, currDateString);
+    apodRange(targetDateString, currDateString);
 }
 
-export let apodRange = async (clear, startDate, endDate) => {
+export let apodRange = async (startDate, endDate) => {
     await fetch(`https://api.nasa.gov/planetary/apod?api_key=zfmmKGbz6hiJDtuG7zO4Dtun7YjyWgvHk7d4LQOz&start_date=${startDate}${endDate === undefined ? "" : `&end_date=${endDate}`}`)
         .then(res => res.json())
         .then(data => {
             let arr = store.getState().apod.apodObjs;
+            data.reverse();
 
-            if (clear) {
-                arr = [];
-            }
-
-            arr = data.concat(arr);
+            arr = arr.concat(data);
 
             store.dispatch(setApodObjs(arr));
         })

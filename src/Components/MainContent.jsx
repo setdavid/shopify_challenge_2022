@@ -6,12 +6,6 @@ import ApodCard from "./ApodCard";
 function MainContent() {
     let { apodObjs, dateRef } = useSelector(state => state.apod);
 
-    let apodObjsArr = new Array(apodObjs.length);
-
-    for (let i = apodObjs.length - 1; i >= 0; i--) {
-        apodObjsArr[apodObjs.length - 1 - i] = <ApodCard key={i} apodObj={apodObjs[i]} />
-    }
-
     return (
         <div id="main-content-fluid" className="container-fluid">
             <div id="main-content" className="container">
@@ -28,7 +22,7 @@ function MainContent() {
                 </div>
                 <div id="apod-content" className="row">
                     <div className="col-12">
-                        {apodObjsArr}
+                        {apodObjs.map((apodObj, i) => <ApodCard key={i} apodObj={apodObj} />)}
                     </div>
                 </div>
                 <div id="load-more-btn-wrapper" className="row">

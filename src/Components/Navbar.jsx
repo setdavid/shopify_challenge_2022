@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { apodRange, initialize } from "../js/utils";
-import { useDispatch } from "react-redux";
-import { setDateRef } from "../redux/ducks/apod";
+import { batch, useDispatch } from "react-redux";
+import { clearApodObjs, setDateRef } from "../redux/ducks/apod";
 
 export const NAVBAR_HEIGHT = 60;
 
@@ -39,8 +39,11 @@ function Navbar() {
 
         let startDateArr = startDate.split("-").map(substring => parseInt(substring));
         let startDateObj = new Date(startDateArr[0], startDateArr[1] - 1, startDateArr[2]);
-        dispatch(setDateRef(startDateObj));
-        apodRange(true, startDate, endDate);
+        batch(() => {
+            dispatch(setDateRef(startDateObj));
+            dispatch(clearApodObjs());
+        });
+        apodRange(startDate, endDate);
 
         setToggleSearch(false);
     }
