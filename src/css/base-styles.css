@@ -1,7 +1,7 @@
 /********** Defaults **********/
 
 :root {
-    --theme-color-1: #990000;
+    --theme-1: #E0E0E0;
 }
 
 /********** Features **********/
@@ -30,15 +30,37 @@
 #app-content {
     display: grid;
     height: 100vh;
-    grid-template-rows: 60px 1fr;
 }
 
 #navbar {
-    background: red;
+    box-shadow: 2px 4px 4px hsl(0deg 0% 0% / 0.44);
+    z-index: 1000;
+    background: white;
+    position: fixed;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+}
+
+#search-toggle {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+#search-section label {
+    font-size: 0.75rem;
 }
 
 #main-content {
     background: green;
+    scroll-behavior: smooth;
+}
+
+#main-content-fluid {
+    background: var(--theme-1);
     scroll-behavior: smooth;
 }
 
