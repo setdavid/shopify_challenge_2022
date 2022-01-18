@@ -4,6 +4,7 @@ import ApodCard from "./ApodCard";
 
 function MainContent() {
     let { apodObjs } = useSelector(state => state.apod);
+    console.log(apodObjs.length);
     console.log(apodObjs);
 
     return (
@@ -22,9 +23,7 @@ function MainContent() {
                 </div>
                 <div id="apod-content" className="row">
                     <div className="col-12">
-                        {apodObjs.map(apodObj => {
-                            return <ApodCard key={apodObj.date} apodObj={apodObj} />
-                        })}
+                        {apodObjs.map((apodObj, i) => <ApodCard key={i} apodObj={apodObj} />)}
                     </div>
                 </div>
             </div>
