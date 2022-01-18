@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { apodRange } from "../js/utils";
+import { apodRange, initialize } from "../js/utils";
 import { useDispatch } from "react-redux";
 import { setDateRef } from "../redux/ducks/apod";
 
@@ -49,9 +49,11 @@ function Navbar() {
         <div id="navbar" className="container-fluid">
             <div id="navbar-main" className="row" style={navbarMainCSS}>
                 <div id="logo" className="col-6">
-                    <h3>
-                        Spacestagram
-                    </h3>
+                    <button onClick={() => initialize()}>
+                        <h3>
+                            Spacestagram
+                        </h3>
+                    </button>
                 </div>
                 <div id="search-toggle" className="col-6">
                     <button onClick={() => setToggleSearch(!toggleSearch)} >

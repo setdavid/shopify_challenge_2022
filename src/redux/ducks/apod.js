@@ -1,4 +1,5 @@
 const SET_APOD_OBJS = "SET_APOD_OBJS";
+const CLEAR_APOD_OBJS = "CLEAR_APOD_OBJS";
 const SET_DATE_REF = "SET_DATE_REF";
 
 export const setApodObjs = (apodObjs) => ({
@@ -6,6 +7,10 @@ export const setApodObjs = (apodObjs) => ({
     payload: {
         apodObjs
     }
+});
+
+export const clearApodObjs = () => ({
+    type: CLEAR_APOD_OBJS
 });
 
 export const setDateRef = (dateRef) => ({
@@ -24,6 +29,8 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_APOD_OBJS:
             return { ...state, apodObjs: action.payload.apodObjs };
+        case CLEAR_APOD_OBJS:
+            return { ...state, apodObjs: [] };
         case SET_DATE_REF:
             return { ...state, dateRef: action.payload.dateRef };
         default:
