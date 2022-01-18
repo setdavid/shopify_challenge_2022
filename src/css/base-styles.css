@@ -27,11 +27,20 @@
 
 /********** Component Styles **********/
 
-.App-header {
-    position: relative;
-    overflow: hidden;
+#app-content {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 60px 1fr;
 }
 
+#navbar {
+    background: red;
+}
+
+#main-content {
+    background: green;
+    scroll-behavior: smooth;
+}
 
 /********** Media Queries **********/
 
