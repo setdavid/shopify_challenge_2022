@@ -23,9 +23,9 @@ function MainContent() {
     } else if (apodsStatus === APODS_STATUS_LOADING) {
         bottomComp = <div className="row justify-content-center">
             <div className="col-12 col-md-6 loading-wrapper">
-                <h4>
+                <div style={{ fontSize: "1.5rem" }}>
                     Loading...
-                </h4>
+                </div>
                 <FontAwesomeIcon icon={faMeteor} size="2x" className="loading" />
             </div>
         </div>;
@@ -38,7 +38,7 @@ function MainContent() {
     }
 
     return (
-        <div id="main-content-fluid" className="container-fluid">
+        <main id="main-content-fluid" className="container-fluid">
             <div id="main-content" className="container">
                 <div className="row justify-content-center">
                     <div id="app-description" className="col-12 col-md-9">
@@ -58,7 +58,7 @@ function MainContent() {
                 </div>
                 {bottomComp}
             </div>
-        </div>
+        </main>
     );
 }
 

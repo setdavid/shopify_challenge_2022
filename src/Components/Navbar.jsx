@@ -49,17 +49,17 @@ function Navbar() {
     }
 
     return (
-        <div id="navbar" className="container-fluid">
+        <header id="navbar" className="container-fluid">
             <div id="navbar-main" className="row" style={navbarMainCSS}>
                 <div id="logo" className="col-6">
                     <button onClick={() => initialize()}>
-                        <h3>
+                        <h1 style={{ fontSize: "1.75rem" }}>
                             Spacestagram
-                        </h3>
+                        </h1>
                     </button>
                 </div>
                 <div id="search-toggle" className="col-6">
-                    <button onClick={() => setToggleSearch(!toggleSearch)} >
+                    <button name="search_date_range" onClick={() => setToggleSearch(!toggleSearch)} >
                         <FontAwesomeIcon icon={faSearch} />
                     </button>
                 </div>
@@ -72,7 +72,7 @@ function Navbar() {
                     <form style={{ height: "100%", width: "100%" }} onSubmit={handleSubmit}>
                         <div className="row">
                             <div className="col-12 col-lg-4">
-                                <label>Start Date</label>
+                                <label for="start_date">Start Date</label>
                                 <input
                                     type="date"
                                     name="start_date"
@@ -80,7 +80,7 @@ function Navbar() {
                                     onChange={e => { setStartDate(e.target.value) }} />
                             </div>
                             <div className="col-12 col-lg-4">
-                                <label>End Date</label>
+                                <label for="end_date">End Date</label>
                                 <input
                                     type="date"
                                     name="end_date"
@@ -88,13 +88,13 @@ function Navbar() {
                                     onChange={e => { setEndDate(e.target.value) }} />
                             </div>
                             <div id="navbar-search-enter" className="col-12 col-lg-4">
-                                <button>Enter</button>
+                                <button type="submit">Enter</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>
+        </header>
     );
 }
 
