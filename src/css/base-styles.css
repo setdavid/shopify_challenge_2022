@@ -66,7 +66,7 @@ button {
     display: flex;
     justify-content: center;
     background: transparent;
-    transition: all 0.5s;
+    transition: all 250ms;
 }
 
 #navbar-search>.col-10 {
@@ -83,7 +83,7 @@ button {
 
 #search-toggle {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -163,7 +163,7 @@ button {
 }
 
 .like-btn {
-    transition: color 200ms;
+    transition: color 250ms;
 }
 
 #load-more-btn {
@@ -176,6 +176,43 @@ button {
 
 #load-more-btn-wrapper {
     margin-bottom: 1rem;
+}
+
+.loading {
+    animation: loading-anim 2s infinite;
+    position: absolute;
+    transform: rotate(-90deg);
+    border-radius: 0%;
+    left: 0%;
+    top: 0;
+    color: var(--text);
+    z-index: 100;
+    color: var(--text);
+}
+
+.loading-wrapper {
+    overflow: hidden;
+    height: 58px;
+    display: flex;
+    align-items: flex-start;
+}
+
+@keyframes loading-anim {
+    0% {
+        top: -60px;
+        left: -105%;
+        color: var(--text);
+    }
+
+    40% {
+        color: var(--text);
+    }
+
+    100% {
+        top: 45px;
+        left: 105%;
+        color: red;
+    }
 }
 
 /********** Media Queries **********/
