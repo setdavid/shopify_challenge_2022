@@ -59,7 +59,7 @@ function Navbar() {
                     </button>
                 </div>
                 <div id="search-toggle" className="col-6">
-                    <button name="search_date_range" onClick={() => setToggleSearch(!toggleSearch)} >
+                    <button title="search_button" aria-label="search_button" onClick={() => setToggleSearch(!toggleSearch)} >
                         <FontAwesomeIcon icon={faSearch} />
                     </button>
                 </div>
@@ -75,7 +75,7 @@ function Navbar() {
                                 <label for="start_date">Start Date</label>
                                 <input
                                     type="date"
-                                    name="start_date"
+                                    id="start_date"
                                     value={startDate}
                                     onChange={e => { setStartDate(e.target.value) }} />
                             </div>
@@ -83,7 +83,7 @@ function Navbar() {
                                 <label for="end_date">End Date</label>
                                 <input
                                     type="date"
-                                    name="end_date"
+                                    id="end_date"
                                     value={endDate}
                                     onChange={e => { setEndDate(e.target.value) }} />
                             </div>
